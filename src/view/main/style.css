@@ -1,0 +1,17 @@
+.container {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.main {
+  box-shadow: 1px 1px 2px 0px #e3d8d8, 
+              0.2px 0px 2px 0px #e3d8d8;
+}
+
+.header {
+  text-align: center;
+  color: #efc3c3;
+  font-size: 4rem;
+  font-weight: lighter;
+}

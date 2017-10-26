@@ -1,0 +1,26 @@
+[ignore]
+.*/__tests__/.*
+.*\.test\.js
+.*\.spec\.js
+<PROJECT_ROOT>/node_modules/.*
+<PROJECT_ROOT>/.storybook/.*
+<PROJECT_ROOT>/.cache-loader/.*
+<PROJECT_ROOT>/dist/.*
+<PROJECT_ROOT>/stories/.*
+<PROJECT_ROOT>/webpack.config.js
+<PROJECT_ROOT>/postcss.config.js
+
+[include]
+
+[libs]
+
+[options]
+module.ignore_non_literal_requires=true
+module.name_mapper='^lib\/\(.*\)$' -> '<PROJECT_ROOT>\/src\/lib\/\1'
+module.name_mapper='^style\/\(.*\)$' -> '<PROJECT_ROOT>\/src\/lib\/styles\/\1'
+module.name_mapper='^view\/\(.*\)$' -> '<PROJECT_ROOT>\/src\/view\/\1'
+module.name_mapper='^component\/\(.*\)$' -> '<PROJECT_ROOT>\/src\/component\/\1'
+module.name_mapper='^core\/\(.*\)$' -> '<PROJECT_ROOT>\/src\/core\/\1'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>\/builder\/mocks\/styleMock.js'
+module.name_mapper.extension='.*\.\(webp|jpg|png|svg\)$' -> '<PROJECT_ROOT>\/builder\/mocks\/fileMock.js'
+
