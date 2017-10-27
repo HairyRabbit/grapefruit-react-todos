@@ -14,7 +14,7 @@ function ListView (props: Props): React.Node {
     isActive
   } = props
 
-  const [ left, middle, right ] = children
+  const [ left, middle, right, ...others ] = children
 
   return (
     <div className={[style.container, isActive ? style.active : ''].join(' ')}>
@@ -23,6 +23,7 @@ function ListView (props: Props): React.Node {
         {middle}
         <div className={style.side}>{right}</div>
       </div>
+      {others}
     </div>
   )
 }

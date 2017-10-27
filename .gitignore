@@ -41,7 +41,6 @@ flow-bin
 flow-typed/npm
 
 # Webpack Config
-webpack.config.js
 .cache-loader
 
 # Emacs auto save file

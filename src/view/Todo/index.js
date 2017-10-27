@@ -45,7 +45,6 @@ export class Todo extends Component<Props, State> {
 
   blurHandle(evt) {
     this.afterUpdateHandle(evt.target.value)
-    this.toggleEdit()
   }
 
   render() {
@@ -59,16 +58,19 @@ export class Todo extends Component<Props, State> {
       <ListView isActive={this.state.isEdit}>
         <CheckBox checked={todo.completed} onChange={updateTodoByCompleted(todo)} />
         {this.state.isEdit ? (
-          <TextField value={todo.text} 
-                      onKeyUp={this.afterUpdateHandle}
-                      onBlur={this.blurHandle} />
+          <TextField value={todo.text}
+                     autoFocus
+                     onKeyUp={this.afterUpdateHandle}
+                     onBlur={this.blurHandle} />
         ) : (
           <div className={[style.container, todo.completed ? style.completed : ''].join(' ')}
                onClick={this.toggleEdit}>
             {todo.text}
           </div>
         )}
-        <div onClick={deleteTodo(todo)}>x</div>
+        <div onClick={deleteTodo(todo)}>
+
+      </div>
         </ListView>
     )
   }

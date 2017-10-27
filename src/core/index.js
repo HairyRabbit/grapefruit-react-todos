@@ -35,7 +35,12 @@ function foldModule(modkey) {
 const update = combineReducers({
   //...modules.reduce(foldModule('default'), {}),
   todos: todosUpdate,
-  router
+  models: combineReducers({
+    todo: todosUpdate
+  }),
+  modules: combineReducers({
+    router
+  })
 })
 
 const init = {

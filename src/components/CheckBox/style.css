@@ -1,26 +1,30 @@
 .container {
-    display: inline-block;
-    position: relative;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    vertical-align: middle;
-    cursor: pointer;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  position: relative;
+
+  vertical-align: middle;
+  cursor: pointer;
 }
 
 .container:after {
-    content: '✓';
-    display: none;
-    position: absolute;
-    width: 1.5rem;
-    height: 1.5rem;
-    text-align: center;
-    color: #600af7;
-    font-size: 1.2rem;
-    line-height: 1.2;
+  display: none;
+  content: '✓';
+  width: 1.5rem;
+  height: 1.5rem;
+
+  position: absolute;
+
+  font-size: 1.2rem;
+  line-height: 1.2;
+  text-align: center;
+  color: #600af7;
 }
 
 .active:after {
-    display: inline-block;
+  display: inline-block;
 }

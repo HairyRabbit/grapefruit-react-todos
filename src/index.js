@@ -15,9 +15,7 @@ function Root(): React.Element<*> {
   return (
     <Provider store={store}>
       <ConnectedRouter history={createHistory()}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <App />
       </ConnectedRouter>
     </Provider>
   )
