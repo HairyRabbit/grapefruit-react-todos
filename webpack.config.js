@@ -30,8 +30,8 @@ module.exports = function (env) {
   const module = {
     rules: [
       // JavaScripts
-      { test: /\.js$/, enforce: 'pre', use: 'eslint-loader' },
-      { test: /\.js$/, use: 'babel-loader' },
+      { test: /\.js$/, enforce: 'pre', use: 'eslint-loader', exclude: /node_modules/ },
+      { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
 
       // Styles
       { test: /\.css$/, use: [
@@ -47,7 +47,12 @@ module.exports = function (env) {
   }
 
   const resolve = {
-    alias: {}
+    alias: {
+      config: path.resolve('./configs'),
+      component: path.resolve('./src/components'),
+      core: path.resolve('./src/core'),
+      view: path.resolve('./src/view')
+    }
   }
 
   const plugins = [

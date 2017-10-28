@@ -22,12 +22,11 @@ export default function todos (
 ): Model {
   switch (action.type) {
   case ActionType.CREATE_TODO: {
-    const newTodo = createTodoByText(action.payload)
     return {
       ...model,
       todos: [
         ...model.todos,
-        newTodo
+        action.payload
       ]
     }
   }

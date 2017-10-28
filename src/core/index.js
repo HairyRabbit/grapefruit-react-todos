@@ -8,10 +8,19 @@
  * Configure redux store.
  */
 
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-import { routerReducer as router , routerMiddleware }             from 'react-router-redux'
-import thunkMiddleware                                            from 'redux-thunk'
-import createHistory                                              from 'history/createBrowserHistory'
+import {
+  createStore,
+  combineReducers,
+  applyMiddleware,
+  compose
+} from 'redux'
+import {
+  routerReducer as router ,
+  routerMiddleware
+} from 'react-router-redux'
+import thunkMiddleware from 'redux-thunk'
+// import createHistory from 'history/createBrowserHistory'
+import history from 'config/history'
 import todosUpdate, { initModel as todosInitModel } from './todos'
 
 function foldModule(modkey) {
@@ -48,9 +57,9 @@ const init = {
   todos: todosInitModel
 }
 
-const middlewares = applyMiddleware(thunkMiddleware, routerMiddleware(createHistory()))
+const middlewares = applyMiddleware(thunkMiddleware, routerMiddleware(history))
 
-const enhancer = process.env.NODE_ENV === 'development'
+const enhancer = process.env.NODE_ENV !== 'production'
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
       : compose
 

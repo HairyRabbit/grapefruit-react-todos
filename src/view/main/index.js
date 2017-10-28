@@ -109,8 +109,11 @@ import style from './style.css'
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Main)
 
+type Props = {
+  match: any
+}
 
-export default function Main () {
+export default function Main (props: Props) {
   return (
     <div className={style.container}>
       <h1 className={style.header}>todos</h1>

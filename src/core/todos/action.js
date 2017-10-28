@@ -15,10 +15,26 @@ import type {
   DeleteTodosAction
 } from './types'
 
+import store from '../../services/datas'
+
 function createTodo (value: string): CreateTodoAction {
+  return function(dispatch) {
+    store.create('todo', createTodoByText(value))
+      .then(record => {
+        return dispatch({
+          type: ActionType.CREATE_TODO,
+          payload: record.toJSON()
+        })
+      })
+  }
+}
+
+function createTodoByText (text: string): Todo {
+  const id = String(Date.now())
   return {
-    type: ActionType.CREATE_TODO,
-    payload: value
+    id,
+    text,
+    completed: false
   }
 }
 

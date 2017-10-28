@@ -34,7 +34,7 @@
 
 .nav {
   margin: 0;
-  paddin: 0;
+  padding: 0;
   list-style-type: none;
 }
 
@@ -53,4 +53,20 @@
 
 .nav li:last-child:after {
   display: none;
+}
+
+.menu {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.menu:hover {
+  color: #d076d2;
+  text-decoration: none;
+}
+
+.active {
+  color: #d076d2;
+  border-color: #d076d2;
 }

@@ -1,7 +1,7 @@
 // @flow
 
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { PureComponent } from 'react'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actions } from '../../core/todos'
 import Confirm from '../../components/Confirm'
@@ -17,7 +17,7 @@ type State = {
   confirmOpened: boolean
 }
 
-export class Footer extends Component<Props, State> {
+export class Footer extends PureComponent<Props, State> {
   constructor (props) {
     super(props)
 
@@ -63,20 +63,19 @@ export class Footer extends Component<Props, State> {
         <div className={style.left}>
           {unCompletedTodos.length === 1
             ? String(unCompletedTodos.length) + ' item'
-          : String(unCompletedTodos.length) + ' items'}
-          <span>left</span>
+          : String(unCompletedTodos.length) + ' items'} left
         </div>
 
         <nav className={style.middle}>
           <ul className={style.nav}>
-            <li>
-              <Link to="/">All</Link>
+            <li key="nav-root">
+              <NavLink to="/" exact activeClassName={style.active} className={style.menu}>All</NavLink>
             </li>
-            <li>
-              <Link to="/active">Active</Link>
+            <li key="nav-active">
+              <NavLink to="/active" exact activeClassName={style.active} className={style.menu}>Active</NavLink>
             </li>
-            <li>
-              <Link to="/completed">Completed</Link>
+            <li key="nav-completed">
+              <NavLink to="/completed" exact activeClassName={style.active} className={style.menu}>Completed</NavLink>
             </li>
           </ul>
         </nav>
@@ -116,4 +115,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer))

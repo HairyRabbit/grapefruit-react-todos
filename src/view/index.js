@@ -16,7 +16,7 @@ function App(): React.Element<*> {
   return (
     <div>
       <Switch>
-        <Route path="/(active|completed)?" exact component={import(/* webpackChunkName: "main" */'./main')} />
+        <Route path="/(active|completed)?" exact component={import('./main')} />
         <Route component={NoMatch} />
       </Switch>
     </div>
